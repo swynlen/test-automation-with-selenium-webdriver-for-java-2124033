@@ -11,7 +11,12 @@ public class Modals extends Main {
     driver.get("https://www.selenium.dev/selenium/web/modal_dialogs/modern_modal.html");
     driver.findElement(By.id("trigger-modal-btn")).click();
 
-
+    WebElement modal = driver.findElement(By.id("modalContent"));
+    if (modal.isDisplayed()) {
+      System.out.println("Modal is displayed");
+      driver.findElement(By.id("modal-input")).sendKeys("Hey buddy");
+      driver.findElement(By.id("modal-close")).click();
+    } else System.out.println("Modal is not displayed");
 
     driver.quit();
   }
